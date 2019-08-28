@@ -5,6 +5,7 @@
 }
 .social {
     -webkit-transform: scale(0.8);
+    color: #343a40;
     /* Browser Variations: */
     
     -moz-transform: scale(0.8);
@@ -25,7 +26,7 @@
     color: #4099FF;
 }
 #social-gp:hover {
-    color: #d34836;
+    color: #201d1d;
 }
 #social-em:hover {
     color: #f39c12;
@@ -36,5 +37,14 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: -webkit-fill-available;
+    height: 50vh;
+    margin-bottom: 0;
+}
+
+
+#nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:10;
 }

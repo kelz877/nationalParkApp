@@ -18,23 +18,44 @@
             </div>
         </div>    
        </header> 
-        <div id="nav">  
+        <div id="nav" class="sticky-top">  
             <nav class="navbar navbar-inverse navbar-static-top bg-dark">
                 <div class="container">
                 <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <a class="text-light nav-link active" href="index.html">Home</a>
+                <a class="text-light nav-link" href="index.html">Home</a>
                 <a class="text-light nav-link" href="parks.html">Park Search</a>
                 <a class="text-light nav-link" href="alerts.html">Alerts</a>
-                <a class="text-light nav-link" href="events.html">Events</a>
+                <a class="text-light nav-link active" href="events.html">Events</a>
                 <a class="text-light nav-link" href="campgrounds.html">Campgrounds</a>
                 <a class="text-light nav-link" href="news.html">News</a>
                 <a class="text-light nav-link" href="#">Twitter</a>
             </nav>
+            </div>
         </div>
-        
 
         <div class="container">
-                Welcome to a search tool that looks through the U.S. National Parks Service data to help you plan your next adventure! 
+            <p>Use this search to see if there are any events happening at a certain park or search by state!</p>
+        </div>
+        <div class="container mx-auto">
+            <form action="GET" id="eventSearchForm" class="needs-validation mx-auto" novalidate>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="parkName">Park Name or Keyword Search</label>
+                        <input type="text" class="form-control" placeholder="Park Name" id="eventKeyword">
+                    </div>
+                </div>    
+                <div class="form-row">
+                    <div class="col-md-2 mb-3">
+                        <label for="stateSearch">State </label>
+                        <input type="text" id="stateSearch" class="form-control mx-xm-3" name="stateSearch">
+                    </div>
+                </div>
+                <button class="btn btn-info" id="eventSearchButton" type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="container" id="eventSearchDisplay">
+         <!--api query results  -->
         </div>
 
 
@@ -55,6 +76,6 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="parkApp.js"></script>
+        <script src="eventApp.js"></script>
     </body>
 </html>
