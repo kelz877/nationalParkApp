@@ -5,7 +5,7 @@ let eventSearchForm = document.getElementById("eventSearchForm").addEventListene
 //get \keyword from search
 let eventKeyword = document.getElementById("eventKeyword")
 let stateSearch = document.getElementById("stateSearch")
-
+let apiKey = `&api_key=bTMAlhV0gL4xjxGQJ4AtXnOMCaUe7lcTUEn3aQrq`
 //this is getting the park id from when you click the events button on the park page..
 var urlParams = new URLSearchParams(window.location.search);
 //if true
@@ -19,23 +19,25 @@ if(urlParams.has("parkid")){
 }
 
 
-//    
+//refactor urls and start with the beginning of the url and then just add to the end of it based on the search if(state search) { testurl + stateCode=${state} etc}
 
 //retrieve data from api
 async function retrieveEventData(){
     let parkCode = urlParams.get('parkid')
     console.log(parkCode)
+    urlPrefix = `https://developer.nps.gov/api/v1/events?`
     stateSearch = stateSearch.value
     eventKeyword = eventKeyword.value
     eventKeyword = encodeURIComponent(eventKeyword)
     if(stateSearch != '' && eventKeyword != ''){
-        testurl = `https://developer.nps.gov/api/v1/events?stateCode=${stateSearch}&q=${eventKeyword}&api_key=bTMAlhV0gL4xjxGQJ4AtXnOMCaUe7lcTUEn3aQrq` 
+        testurl = urlPrefix + `stateCode=${stateSearch}&q=${eventKeyword}` + apiKey
+        console.log(testurl)
     } else if(stateSearch != '' && eventKeyword === ''){
-        testurl = `https://developer.nps.gov/api/v1/events?stateCode=${stateSearch}&api_key=bTMAlhV0gL4xjxGQJ4AtXnOMCaUe7lcTUEn3aQrq`
+        testurl = urlPrefix + `stateCode=${stateSearch}` + apiKey
     } else if(stateSearch === '' && eventKeyword != ''){
-        testurl = `https://developer.nps.gov/api/v1/events?q?=${eventKeyword}&api_key=bTMAlhV0gL4xjxGQJ4AtXnOMCaUe7lcTUEn3aQrq` 
+        testurl = urlPrefix + `q?=${eventKeyword}` + apiKey 
     } else{
-        testurl = `https://developer.nps.gov/api/v1/events?parkCode=${parkCode}&api_key=bTMAlhV0gL4xjxGQJ4AtXnOMCaUe7lcTUEn3aQrq`
+        testurl = urlPrefix + `parkCode=${parkCode}` + apiKey
     }
 
     let response = await fetch(testurl)

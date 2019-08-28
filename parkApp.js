@@ -8,6 +8,7 @@ let parkKeyword = document.getElementById("parkKeyword")
 //main park search
 async function retrieveParkData(){
     parkKeyword = parkKeyword.value
+    parkKeyword = encodeURIComponent(parkKeyword)
     stateSearch = stateSearch.value
     //console.log(stateSearch)
     //console.log(parkKeyword)
@@ -38,10 +39,10 @@ function displayParkInfo(){
                 <h5 class="card-title" id="parkState"> ${park.designation} in ${park.states}</h5>
                 <p class="card-text" id="parkDescription">${park.description}</p>
                 <a href="${park.url}" class="btn btn-info" id="">Park Website</a>
-                <a href="#" class="btn btn-info" id="">Alerts</a>
+                <a href="alerts.html?parkid=${park.parkCode}" class="btn btn-info" id="">Alerts</a>
                 <a href="events.html?parkid=${park.parkCode}" class="btn btn-info" id="">Events</a>
                 <a href="#" class="btn btn-info" id="">News</a>
-                <a href="#" class="btn btn-info" id="">Campgrounds</a>
+                <a href="campgrounds.html?parkid=${park.parkCode}" class="btn btn-info" id="">Campgrounds</a>
             </div></div>`
 
 
