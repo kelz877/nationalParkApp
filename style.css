@@ -13,6 +13,7 @@
     -webkit-transition-duration: 0.5s;
     -moz-transition-duration: 0.5s;
     -o-transition-duration: 0.5s;
+    -webkit-overflow-scrolling: touch;
 }
 
 /*
@@ -48,3 +49,29 @@
     width: 100%;
     z-index:10;
 }
+
+.special-card {
+    background-color: rgba(245, 245, 245, 1);
+    opacity: .4;
+}
+
+.special-container {
+    position: absolute;
+}
+@media (min-width: 1200px){
+    .special-container {
+        max-width: 700px;
+    }
+}
+/* 
+@media (min-width: 1200px){
+    .special-container {
+        max-width: 700px;
+    }
+}
+
+@media (min-width: 1200px){
+    .special-container {
+        max-width: 700px;
+    }
+} */
