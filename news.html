@@ -13,8 +13,8 @@
         <header class="masthead">
         <div class="jumbotron jumbotron-fluid topJumbotron">
             <div class="container">
-                <!-- <h1 class="display-4 ">National Parks Search</h1>
-                <p class="lead">Find your next adventure here.</p> -->
+                <!-- <h1 class="display-4">Fluid jumbotron</h1>
+                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p> -->
             </div>
         </div>    
        </header> 
@@ -24,9 +24,9 @@
                 <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <a class="text-light nav-link" href="index.html">Home</a>
                 <a class="text-light nav-link" href="parks.html">Park Search</a>
-                <a class="text-light nav-link active" href="alerts.html">Alerts</a>
+                <a class="text-light nav-link" href="alerts.html">Alerts</a>
                 <a class="text-light nav-link" href="events.html">Events</a>
-                <a class="text-light nav-link" href="campgrounds.html">Campgrounds</a>
+                <a class="text-light nav-link active" href="campgrounds.html">Campgrounds</a>
                 <a class="text-light nav-link" href="news.html">News</a>
                 <!-- <a class="text-light nav-link" href="#">Twitter</a> -->
             </nav>
@@ -34,14 +34,15 @@
         </div>
 
         <div class="container">
-            <p class="lead mt-3">Use this search to see if there are any alerts for a certain park or search by state!</p>
+            <h2>Park News</h2>
+            <p>Search here to get recent park News!</p>
         </div>
         <div class="container mx-auto">
-            <form action="GET" id="alertSearchForm" class="needs-validation mx-auto" novalidate>
+            <form action="GET" id="newsSearchForm" class="needs-validation mx-auto" novalidate>
                 <div class="form-row">
                     <div class="col-md-4 mb-3">
                         <label for="parkName">Park Name or Keyword Search</label>
-                        <input type="text" class="form-control" placeholder="Park Name" id="alertKeyword">
+                        <input type="text" class="form-control" placeholder="Park Name" id="newsKeyword">
                     </div>
                 </div>    
                 <div class="form-row">
@@ -50,11 +51,11 @@
                         <input type="text" id="stateSearch" class="form-control mx-xm-3" name="stateSearch">
                     </div>
                 </div>
-                <button class="btn btn-info" id="alertSearchButton" type="submit">Search</button>
+                <button class="btn btn-info" id="newsSearchButton" type="submit">Search</button>
             </form>
         </div>
 
-        <div class="container" id="alertSearchDisplay">
+        <div class="container" id="newsSearchDisplay">
          <!--api query results  -->
         </div>
 
@@ -76,6 +77,6 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="alertApp.js"></script>
+        <script src="newsApp.js"></script>
     </body>
 </html>
