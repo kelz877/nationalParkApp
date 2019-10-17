@@ -71,10 +71,9 @@ function displayEventInfo(){
 
                 <p class="card-text">${event.recurrencedatestart ? event.recurrencedatestart : "No Start Date Provided"} ${event.recurrencedateend ? event.recurrencedateend : "No End Date Provided"}</p>
 
-                <a href="#" class="btn btn-info" id="">Alerts</a>
-                <a href="#" class="btn btn-info" id="">Events</a>
-                <a href="#" class="btn btn-info" id="">News</a>
-                <a href="#" class="btn btn-info" id="">Campgrounds</a>
+                <a href="alerts.html?parkid=${event.parkCode}" class="btn btn-info" id="">Alerts</a>
+                <a href="news.html?parkid=${event.parkCode}" class="btn btn-info" id="">News</a>
+                <a href="campgrounds.html?parkid=${event.parkCode}" class="btn btn-info" id="">Campgrounds</a>
         </div></div>`
         })
         eventSearchDisplay.innerHTML = eventData.join('')

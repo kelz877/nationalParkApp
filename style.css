@@ -38,7 +38,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 50vh;
+    height: 30vh;
     margin-bottom: 0;
 }
 
@@ -52,7 +52,7 @@
 
 .special-card {
     background-color: rgba(245, 245, 245, 1);
-    opacity: .4;
+    opacity: .45;
 }
 
 .special-container {
