@@ -59,7 +59,7 @@ function displayEventInfo(){
             description = description.replace("<p>", "")
             description = description.replace("</p>","")
 
-            //console.log(description)
+            console.log(event.sitecode)
             return `<div class="card mt-2">
             <h5 class="card-header" id="parkName">${event.parkfullname}</h5>
             <div class="card-body">
@@ -71,13 +71,15 @@ function displayEventInfo(){
 
                 <p class="card-text">${event.recurrencedatestart ? event.recurrencedatestart : "No Start Date Provided"} ${event.recurrencedateend ? event.recurrencedateend : "No End Date Provided"}</p>
 
-                <a href="alerts.html?parkid=${event.parkCode}" class="btn btn-info" id="">Alerts</a>
-                <a href="news.html?parkid=${event.parkCode}" class="btn btn-info" id="">News</a>
-                <a href="campgrounds.html?parkid=${event.parkCode}" class="btn btn-info" id="">Campgrounds</a>
-        </div></div>`
+                <a href="alerts.html?parkid=${event.sitecode}" class="btn btn-info" id="">Alerts</a>
+                <a href="news.html?parkid=${event.sitecode}" class="btn btn-info" id="">News</a>
+                <a href="campgrounds.html?parkid=${event.sitecode}" class="btn btn-info" id="">Campgrounds</a>
+        </div>
+        </div>`
         })
         eventSearchDisplay.innerHTML = eventData.join('')
         console.log("event display successful")
+        
     })
 }
 
