@@ -4,9 +4,19 @@ let campSearchForm = document.getElementById('campSearchForm').addEventListener(
 let campSearchDisplay = document.getElementById('campSearchDisplay');
 let apiKey = `&api_key=bTMAlhV0gL4xjxGQJ4AtXnOMCaUe7lcTUEn3aQrq`
 
-let urlPrefix = `https://developer.nps.gov/api/v1/campgrounds?q=${campKeyword}&stateCode=${stateSearch}`
+
+
+var urlParams = new URLSearchParams(window.location.search)
+
+if(urlParams.has('parkid')){
+    parkCode = urlParams.get('parkid')
+    displayCampData()
+}
 
 async function fetchCampData(){
+    let parkCode = urlParams.get('parkid')
+    //console.log(parkCode)
+    let urlPrefix = `https://developer.nps.gov/api/v1/campgrounds?`
     campKeyword = encodeURIComponent(campKeyword.value)
     stateSearch = stateSearch.value
     if(campKeyword != '' && stateSearch != ''){
@@ -16,11 +26,10 @@ async function fetchCampData(){
     } else if(campKeyword === '' && stateSearch != ''){
         testUrl = urlPrefix + `stateCode=${stateSearch}` + apiKey
     } else{
-        testurl = urlPrefix + `parkCode=${parkCode}` + apiKey
+        testUrl = urlPrefix + `parkCode=${parkCode}` + apiKey
     }
-
-    response = await fetch(testUrl)
-    json = await response.json()
+    let response = await fetch(testUrl)
+    let json = await response.json()
     console.log(json)
     return json 
 }
