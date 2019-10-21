@@ -28,6 +28,7 @@ async function fetchCampData(){
     } else{
         testUrl = urlPrefix + `parkCode=${parkCode}` + apiKey
     }
+
     let response = await fetch(testUrl)
     let json = await response.json()
     console.log(json)
