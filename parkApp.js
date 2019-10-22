@@ -3,6 +3,7 @@ let parkSearchForm = document.getElementById("parkSearchForm").addEventListener(
 //state search
 let stateSearch = document.getElementById("stateSearch")
 let parkKeyword = document.getElementById("parkKeyword")
+const spinner = document.getElementById("spinner");
 
 //get the state from the map click
 var urlParams = new URLSearchParams(window.location.search);
@@ -21,6 +22,8 @@ if(urlParams.has('stateAbbrev')){
 
 //main park search
 async function retrieveParkData(){
+    spinner.removeAttribute('hidden');
+
     let stateCode = urlParams.get('stateAbbrev')
     parkKeyword = parkKeyword.value
     parkKeyword = encodeURIComponent(parkKeyword)
@@ -40,6 +43,7 @@ async function retrieveParkData(){
     let json = await response.json() //access data at the url
     //let parkInfo = (Object.values(json))
     //console.log(json)
+    spinner.setAttribute('hidden', '');
 
     return json
 }

@@ -3,7 +3,8 @@ let stateSearch = document.getElementById('stateSearch');
 let campSearchForm = document.getElementById('campSearchForm').addEventListener('submit', submitFunction);
 let campSearchDisplay = document.getElementById('campSearchDisplay');
 let apiKey = `&api_key=bTMAlhV0gL4xjxGQJ4AtXnOMCaUe7lcTUEn3aQrq`
-
+window.onload = function(){ document.getElementById("loading").style.display = "none" }
+const spinner = document.getElementById("spinner");
 
 
 var urlParams = new URLSearchParams(window.location.search)
@@ -14,6 +15,8 @@ if(urlParams.has('parkid')){
 }
 
 async function fetchCampData(){
+    spinner.removeAttribute('hidden');
+
     let parkCode = urlParams.get('parkid')
     //console.log(parkCode)
     let urlPrefix = `https://developer.nps.gov/api/v1/campgrounds?`
@@ -31,9 +34,11 @@ async function fetchCampData(){
 
     let response = await fetch(testUrl)
     let json = await response.json()
+    spinner.setAttribute('hidden', '');
     console.log(json)
     return json 
 }
+
 
 function displayCampData(){
     fetchCampData().then(json => {

@@ -5,7 +5,7 @@ let newsSearchDisplay = document.getElementById("newsSearchDisplay");
 let newsURL = "https://developer.nps.gov/api/v1/newsreleases?stateCode=co&q=rocky%20mountain%20national%20park&api_key=bTMAlhV0gL4xjxGQJ4AtXnOMCaUe7lcTUEn3aQrq"
 let apiKey = `&api_key=bTMAlhV0gL4xjxGQJ4AtXnOMCaUe7lcTUEn3aQrq`
 let urlPrefix = `https://developer.nps.gov/api/v1/newsreleases?`
-
+const spinner = document.getElementById("spinner");
 //get the state from the map click
 let urlParams = new URLSearchParams(window.location.search);
 
@@ -15,6 +15,8 @@ if(urlParams.has("parkid")){
 }
 
 async function fetchNewsData(){
+    spinner.removeAttribute('hidden');
+
     let parkCode = urlParams.get('parkid')
     newsKeyword = newsKeyword.value
     newsKeyword = encodeURIComponent(newsKeyword)
@@ -34,6 +36,7 @@ async function fetchNewsData(){
 
 
     json = await response.json()
+    spinner.setAttribute('hidden', '');
     console.log(json)
     return json
 }

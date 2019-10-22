@@ -8,8 +8,10 @@ let stateSearch = document.getElementById("stateSearch")
 let apiKey = `&api_key=bTMAlhV0gL4xjxGQJ4AtXnOMCaUe7lcTUEn3aQrq`
 //this is getting the park id from when you click the events button on the park page..
 var urlParams = new URLSearchParams(window.location.search);
+const spinner = document.getElementById("spinner");
+
 //if true
-console.log(urlParams.has("parkid"))
+//console.log(urlParams.has("parkid"))
 
 if(urlParams.has("parkid")){
     let parkCode = urlParams.get('parkid')
@@ -23,6 +25,8 @@ if(urlParams.has("parkid")){
 
 //retrieve data from api
 async function retrieveEventData(){
+    spinner.removeAttribute('hidden');
+
     let parkCode = urlParams.get('parkid')
     console.log(parkCode)
     urlPrefix = `https://developer.nps.gov/api/v1/events?`
@@ -42,6 +46,7 @@ async function retrieveEventData(){
 
     let response = await fetch(testurl)
     let json = await response.json()
+    spinner.setAttribute('hidden', '');
     //console.log(json)
     return json
 }
